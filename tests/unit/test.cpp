@@ -20,6 +20,11 @@ TEST(ArrayTest, Create) {
     numbers.clear();
 }
 
+TEST(ArrayTest, CreateEmpty) {
+    Array<int> arr;
+    ASSERT_EQ(arr.size(), 0);
+}
+
 TEST(ArrayTest, GetSet) {
     Array<int> numbers(10);
     numbers[0] = 10;

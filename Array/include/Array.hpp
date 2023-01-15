@@ -9,7 +9,7 @@ private:
     T*     arr;
     size_t num;
 public:
-    Array(){}
+    Array(): arr(nullptr), num(0) {}
     Array(const Array& a):arr(nullptr), num(0) {*this = a;}
     Array(Array&& a):arr(nullptr), num(0) {*this = std::forward<decltype(a)>(a);}
     explicit Array(size_t n, const T& v = T()):arr(nullptr), num(0) {resize(n, v);}
@@ -96,7 +96,7 @@ private:
     void _heapify(size_t i, Cmp cmp, size_t cnt){
         size_t l, r, h;
         while(true){
-            l = (i >> 1) + 1;
+            l = 2 * i + 1;
             r = l + 1;
             if((l < cnt) && cmp(arr[i], arr[l]))
                 h = l;
