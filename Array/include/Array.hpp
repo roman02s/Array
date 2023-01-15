@@ -23,25 +23,17 @@ public:
     const T* cend() const { return arr + num; }
 
 
-    // изменение размера
-    void resize(size_t n, const T& v = T()) {
-        clear();
-        arr  = new T[n];
-        T* e = arr + n;
-        for(T* p = arr; p != e; ++p)
-            *p = v;
-        num = n;
-    }
     // поиск элемента
-    template<typename Cmp>
-    T* find_element(Cmp cmp) {
-        T *i = arr, *e = arr + num;
+    T* find_element(T& element) {
+        T *i = arr, *end = arr + num;
         T *p = i;
-        for (; i != e; ++i) {
-            if (cmp(*i, *p))
+        for (; i != end; ++i) {
+            if (*p == element) {
                 p = i;
+                return p;
+            }
         }
-        return p;
+        return end;
     }
 
 
@@ -112,5 +104,14 @@ private:
             } else
                 break;
         }
+    }
+    // изменение размера
+    void resize(size_t n, const T& v = T()) {
+        clear();
+        arr  = new T[n];
+        T* e = arr + n;
+        for(T* p = arr; p != e; ++p)
+            *p = v;
+        num = n;
     }
 };

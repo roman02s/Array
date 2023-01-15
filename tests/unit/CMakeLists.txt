@@ -13,7 +13,6 @@ set(TEST_LIBRARIES
         ${GTEST_LIBRARY}
         ${GTEST_MAIN_LIBRARY}
         GTest::GTest
-        gtest_main
         Threads::Threads
         ${ARRAY_LIBRARY}
 )

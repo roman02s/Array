@@ -32,12 +32,6 @@ TEST(ArrayTest, GetSet) {
     numbers.clear();
 }
 
-TEST(ArrayTest, Resize) {
-    Array<std::string> names(10);
-    ASSERT_EQ(names.size(), 10);
-    names.resize(5);
-    ASSERT_EQ(names.size(), 5);
-}
 
 TEST(ArrayTest, Iterator) {
     Array<std::string> names(10);
