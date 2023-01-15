@@ -55,10 +55,7 @@ public:
     Array& operator = (const Array& a){
         if(this != &a){
             resize(a.num);
-            T* e = a.arr + a.num;
-            T* d = arr;
-            for(T* p = a.arr; p != e; ++p)
-                *d++ = *p;
+            std::copy(a.cbegin(), a.cend(), this->arr);
         }
         return *this;
     }
